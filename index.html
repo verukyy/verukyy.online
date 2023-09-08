@@ -1,0 +1,82 @@
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<script>
+// Twój kod js z listą możliwych odpowiedzi
+var answers = ["Tak.", "Nie.", "Może.", "Nie wiem.", "Zależy." , "Spierdalaj." , "xddd." , "Czy ciebie pojebało?" , "Skąd mam to wiedzieć?" , "wefwfwfw" , "Nie powiem xD"];
+
+// Funkcja, która wyświetla odpowiedź na podstawie zapytania
+function showAnswer() {
+  // Pobierz wartość z pola wyszukiwania
+  var query = document.getElementById("search-box").value;
+  // Wybierz losową odpowiedź z listy
+  var randomIndex = Math.floor(Math.random() * answers.length);
+  var randomAnswer = answers[randomIndex];
+  // Wyświetl odpowiedź w elemencie o id="answer"
+  document.getElementById("answer").innerHTML = randomAnswer;
+}
+</script>
+<style>
+/* Ustaw motyw ciemny */
+body {
+  background-color: #202124;
+  color: orange;
+}
+
+/* Ustaw styl dla pola wyszukiwania */
+#search-box {
+  width: 500px;
+  height: 40px;
+  border: 1px solid gray;
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+/* Ustaw styl dla elementu z odpowiedzią */
+#answer {
+  margin-top: 20px;
+}
+
+/* Ustaw wyśrodkowanie elementów na stronie */
+h1, p, input {
+  text-align: center;
+}
+
+/* Ustaw animację dla pola wyszukiwania */
+#search-box {
+  /* Dodaj przejście koloru tła i obramowania */
+  transition: background-color 1.9s, border-color 1.9s;
+}
+
+/* Zmień kolor tła i obramowania pola wyszukiwania, gdy jest aktywne */
+#search-box:focus {
+  background-color: red;
+  border-color: blue;
+}
+/* Ustaw styl dla elementu button */
+button {
+  /* Ustaw szerokość na 200px i wysokość na 50px */
+  width: 110px;
+  height: 50px;
+  /* Ustaw kolor tła na czerwony i kolor tekstu na biały */
+  background-color: red;
+  color: white;
+  /* Ustaw brak obramowania */
+  border: none;
+  /* Ustaw zaokrąglenie rogów na 25px */
+  border-radius: 25px;
+}
+
+</style>
+</head>
+<body>
+<center>
+<div>
+<img src="logo.png">
+</div>
+<input type="text" placeholder="Wpisz tu fraze" id="search-box" onkeydown="if (event.keyCode == 13) showAnswer();">
+<p id="answer"></p>
+<a href="index.html"><button>Strona Główna</button></a>&nbsp;<a href="https://www.instagram.com/verukyydev/"><button>Insta</button></a>&nbsp;<a href="#dc"><button>Discord</button></a>
+</body>
+</html>
