@@ -116,7 +116,8 @@ button {
 <body>
 <center>
 <div>
-<img src="logo.png">
+    <p id="ip-address">Twoje cyfry</p>
+     <img src="logo.png">
 </div>
   <div class="dot"></div>
   <div class="dot"></div>
@@ -150,5 +151,31 @@ button {
   <input type="text" placeholder="Wpisz tu fraze" id="search-box" onkeydown="if (event.keyCode == 13) showAnswer();">
 <p id="answer"></p>
 <a href="index.html"><button>Strona Główna</button></a>&nbsp;<a href="https://www.instagram.com/verukyydev/"><button>Insta</button></a>&nbsp;<a href="#dc"><button>Discord</button></a>
+
+  <script>
+        // Funkcja do pobierania adresu IP
+        function getIpAddress() {
+            // Utwórz żądanie HTTP do serwisu, który zwraca adres IP użytkownika
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "https://api.ipify.org?format=json", true);
+
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    var ipAddress = response.ip;
+
+                    // Wyświetl adres IP na stronie
+                    document.getElementById("ip-address").textContent = "Twój adres IP to: " + ipAddress;
+                } else {
+                    document.getElementById("ip-address").textContent = "Nie można pobrać adresu IP.";
+                }
+            };
+
+            xhr.send();
+        }
+
+        // Wywołaj funkcję pobierania adresu IP po załadowaniu strony
+        window.onload = getIpAddress;
+    </script>
 </body>
 </html>
